@@ -498,7 +498,7 @@ proc sort data = Source1; by Survey_Description_1 Survey_ID Survey_Launch Survey
 
 data Cloud1;
 	set Source1;
-	if Sector_Current = "CLOUD COMPUTING / MANAGED HOSTING";
+	if Sector_Current = "CLOUD COMPUTING";
 	if Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google";
 	if Metric = "ADOPTION" or Metric = "INCREASE";
 run;
@@ -647,7 +647,7 @@ data Cloud11;
 
 	if Survey_Citations < 30 or Cloud_Citations < 5 or Cloud_Overlap < 0.4 then Cloud_Rating = "";
 
-	if Sector_Current = "CLOUD COMPUTING / MANAGED HOSTING" and (Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google")
+	if Sector_Current = "CLOUD COMPUTING" and (Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google")
 		then Cloud_Rating = "Positive";
 
 	drop Cloud_Citations_sos Cloud_NetScore_sos Cloud_Citations_yoy Cloud_NetScore_yoy Control_Citations;
@@ -673,7 +673,7 @@ See Appendix E of the accompanying methodology documentation for a graphical rep
 Please note, only data from 2015 and on is used for the remainder of this program.
 The time difference between the start of the Source Dataset (2010) and the remainder of Insight Dataset (2015) is primarily due to two factors:
 [1] a shift in technology spend that occurred during that time frame from a largely CapEx model to a mix between CapEx and OpEx; and
-[2] ETR’s sample of respondents (i.e., the number of CIOs and IT Decision Makers participating in ETR’s ecosystem and taking our surveys) approximately doubled between 2010 and 2015.
+[2] ETRÂ’s sample of respondents (i.e., the number of CIOs and IT Decision Makers participating in ETRÂ’s ecosystem and taking our surveys) approximately doubled between 2010 and 2015.
 */
 
 proc sort data = Spend_Final; by Survey_Description_1 Survey_ID Survey_Launch Survey_Close Announcement_Date
