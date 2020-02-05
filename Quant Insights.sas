@@ -498,7 +498,7 @@ proc sort data = Source1; by Survey_Description_1 Survey_ID Survey_Launch Survey
 
 data Cloud1;
 	set Source1;
-	if Sector_Current = "CLOUD COMPUTING";
+	if Sector_Current = "CLOUD COMPUTING / MANAGED HOSTING";
 	if Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google";
 	if Metric = "ADOPTION" or Metric = "INCREASE";
 run;
@@ -647,7 +647,7 @@ data Cloud11;
 
 	if Survey_Citations < 30 or Cloud_Citations < 5 or Cloud_Overlap < 0.4 then Cloud_Rating = "";
 
-	if Sector_Current = "CLOUD COMPUTING" and (Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google")
+	if Sector_Current = "CLOUD COMPUTING / MANAGED HOSTING" and (Vendor_Current = "AWS" or Vendor_Current = "Microsoft" or Vendor_Current = "Google")
 		then Cloud_Rating = "Positive";
 
 	drop Cloud_Citations_sos Cloud_NetScore_sos Cloud_Citations_yoy Cloud_NetScore_yoy Control_Citations;
